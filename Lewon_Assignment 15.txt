@@ -1,0 +1,78 @@
+class BinaryTree:
+    def __init__(self, root, left=None, right=None):
+        """
+        'init', meaning these are the attributes the methods have to use. 'Left=None' and 'Right=None' meaning they are
+        changeable and are not a definite and constant number.
+        @type self: BinaryTree
+        @type root: int
+        @type left: BinaryTree
+        @type right: BinaryTree
+        @rtype: None
+        >> opponent1 = BinaryTree(2)
+        >> opponent2 = BinaryTree(3)
+        >> tree = BinaryTree(1, opponent1, opponent2)
+        >> opponent1
+        2
+        >> opponent1 = BinaryTree(1)
+        >> opponent2 = BinaryTree(2)
+        >> tree = BinaryTree(1, opponent1, opponent2)
+        ERROR (not a fibonacci sequence [what is trying to be achieved])
+        """
+        self.root = root
+        self.left = left
+        self.right = right
+
+    def __str__(self):
+        """
+        Allows the class to be printed without printing the function itself. Can only return integers.
+        @type self: BinaryTree
+        @rtype: str(self.root)
+        >> left = BinaryTree(2)
+        >> right = BinaryTree(3)
+        >> tree = BinaryTree(1, left, right)
+        >> left
+        2
+        >> left = BinaryTree("Halfway Message")
+        >> right = BinaryTree("Final Message")
+        >> tree = BinaryTree("Hello World", left, right)
+        ERROR (this function only accepts and returns integers [as seen in doctest for '__init__'])
+        """
+        return str(self.root)
+
+
+def rfct(tree):
+    """
+    recursive function, goes through every part of tree and adds them together, the fibonacci sequence function
+    @type tree: list
+    @rtype: None
+    >> if one row: (left1 + right1 + root) + left2 + right2
+    sum of all
+    >> if one row: (left1 x right1 - root) + left2 + right2
+    ERROR (this is the fibonacci sequence, there is no multiplication or subtraction)
+    """
+    total = 0
+    for i in range(len(tree)):
+        if type(tree[i]) == int:
+            total += tree[i]
+        else:
+            total += rfct(tree[i])
+    return total
+
+
+left = BinaryTree(2)  # variables representing the left and the right of each section of the tree
+right = BinaryTree(3)
+tree = [1, left, right]  # 1 represents root, or end. And left, right included in list as they will all be added
+
+
+invalid = True
+while invalid:
+    input_term = input("How many terms would you like being displayed?: ")  # input on how many terms to be displayed
+    if input_term == str(input_term):
+        for i in range(input_term):  # should it be 'int' or 'str'? Only problem. Neither work #
+            tree.append(tree)  # adds another term to be displayed
+            tree.remove(1)  # removes all 'root' numbers
+            tree.append(1)  # adds 1 'root' number, since there is only one and not multiple
+        print(rfct(tree))
+        invalid = False
+    else:
+        print("Not a whole number, try again." + "\n")
