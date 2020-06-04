@@ -1,4 +1,5 @@
 import time
+from Event_Class import *
 
 
 class Node:
@@ -65,15 +66,11 @@ def create_linear():
             input_next = input("\ntype ('next'): ")
             if n == Node10:
                 print("You have reached the final room... And from there, you see the exit...")
-                import Ending
                 map_end = False
             elif input_next == "next":
                 nnl = n.next_link.pop(0)
                 print(nnl.name)
-                # import Event_Class.py
-                print("Event Class")
+                ev.event_call()
                 n = nnl
             else:
                 print("Invalid decision.\n")
-
-create_linear()

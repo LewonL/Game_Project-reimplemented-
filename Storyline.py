@@ -21,7 +21,7 @@ def storyline1():
               "\nPeople have been reported missing after being seen entering the "
               "house. And the house has been left, undisturbed for years…")
         time.sleep(5)
-        storyline1_finished = input("\nAre you finished the story? (type here when done): ")
+        storyline1_finished = input("\nAre you finished the story? (press 'enter' when done)")
         if storyline1_finished == 'yes':
             story1_while = False
         else:
@@ -44,12 +44,8 @@ def storyline2():
               "in time? Or will you be reported missing like the rest?\nWe'll see about that...\n๔คץɭเﻮђՇ ๔๏єร "
               "ภ๏Շ קครร เŦ Շђєгє คгє ภ๏ ฬเภ๔๏ฬร\n\nWelcome to... \nㄒ卄乇 爪卂几丂丨ㄖ几 ㄖ千 ᗪ乇卂ᗪᗪ卂ㄚ")
         time.sleep(5)
-        storyline2_finished = input("\nAre you finished the story? (type here when done): ")
+        storyline2_finished = input("\nAre you finished the story? (press 'enter' when done)")
         if storyline2_finished == 'yes':
             story2_while = False
         else:
             story2_while = False
-
-
-storyline1()
-storyline2()
